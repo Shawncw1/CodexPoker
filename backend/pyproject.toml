@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codexpoker-backend"
+version = "0.1.0"
+description = "Server-authoritative NLHE backend for CodexPoker"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.133.0",
+  "pokerkit>=0.7.3",
+  "pydantic>=2.12.0",
+  "uvicorn[standard]>=0.41.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "hypothesis>=6.0.0",
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
